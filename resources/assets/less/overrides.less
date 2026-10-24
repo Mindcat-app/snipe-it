@@ -341,11 +341,13 @@ a.logo.no-hover a:hover {
 }
 
 
+// Required marker on the end edge, so it sits on the left in right-to-left pages.
+// #a85a05 is 5.09:1 on white, #f0a648 is 4.51:1 on the dark field (orange was 1.97:1 on white).
 input:required, select:required {
-  border-right: 5px solid orange;
+  border-inline-end: 3px solid var(--input-required-color);
 }
 select:required + .select2-container .select2-selection, select:required + .select2-container .select2-selection .select2-selection--multiple  {
-  border-right: 5px solid orange !important;
+  border-inline-end: 3px solid var(--input-required-color) !important;
 }
 
 body {
@@ -1676,6 +1678,7 @@ Radio toggle styles for permission settings and check/uncheck all
   --text-success: ~"light-dark(#039516,#4ced61)";
   --text-warning: ~"light-dark(#da9113,#f3a51f)";
   --input-border-color: ~"light-dark(#d2d6de,#656464)";
+  --input-required-color: ~"light-dark(#a85a05,#f0a648)";
   --default-label-link-bg: var(--color-bg);
   --default-label-link-text: ~"light-dark(#296282, #5fa4cc)";
   --default-label-link-border: ~"1px solid light-dark(#b8c7ce, #494747)";
@@ -3247,7 +3250,7 @@ input[type="tel"]:required,
 select:required,
 input:required,
 textarea:required {
-  border-right: 5px solid orange !important;
+  border-inline-end: 3px solid var(--input-required-color) !important;
 }
 
 .bootstrap-table .fixed-table-container .table tbody tr.selected td {
