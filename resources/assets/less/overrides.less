@@ -2158,6 +2158,35 @@ input[type="search"].search-highlight {
   cursor: pointer;
 }
 
+// Keyboard focus is always visible; mouse clicks do not draw it (WCAG 2.4.7).
+// Bootstrap and several rules above remove outlines on :focus.
+a:focus-visible,
+button:focus-visible,
+.btn:focus-visible,
+.dropdown-toggle:focus-visible,
+[tabindex]:focus-visible,
+summary:focus-visible,
+input[type="checkbox"]:focus-visible,
+input[type="radio"]:focus-visible {
+  outline: 2px solid var(--link-color);
+  outline-offset: 2px;
+}
+
+.btn-anchor:focus-visible,
+.bootstrap-datetimepicker-widget .btn:focus-visible {
+  outline: 2px solid var(--link-color) !important;
+  outline-offset: 2px;
+}
+
+// On the coloured header and sidebar the ring follows the text colour.
+.main-header a:focus-visible,
+.main-header .btn:focus-visible,
+.main-sidebar a:focus-visible,
+.sidebar-toggle:focus-visible {
+  outline-color: currentColor;
+  outline-offset: -3px;
+}
+
 h1,
 h2,
 h3,
