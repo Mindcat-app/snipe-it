@@ -1670,12 +1670,15 @@ Radio toggle styles for permission settings and check/uncheck all
   --table-border-row: 1px solid var(--table-border-row-color);
   --table-stripe-bg-alt: ~"light-dark(rgba(211, 211, 211, 0.25), #323131)";
   --table-stripe-bg: ~"light-dark(#ffffff, #494747)";
-  --text-danger: ~"light-dark(#a94442, #fa5b48)";
-  --text-help: ~"light-dark(#777676,#a6a4a4)";
+  // Dark danger text was #fa5b48 (3.27:1 on the dark box #3d4144); #ff8e7f is 4.63:1.
+  --text-danger: ~"light-dark(#a94442, #ff8e7f)";
+  // Help text was 3.96:1 on the light page and 4.15:1 on the dark box; now 5.19:1 on #ecf0f5 and 5.81:1 on #3d4144.
+  --text-help: ~"light-dark(#5e6470,#c4c2c2)";
   --text-info: ~"light-dark(#31708f,#2baae6)";
   --text-success: ~"light-dark(#039516,#4ced61)";
   --text-warning: ~"light-dark(#da9113,#f3a51f)";
-  --input-border-color: ~"light-dark(#d2d6de,#656464)";
+  // Field edges were 1.5:1 on white and 1.4:1 on the dark box; now 3.38:1 and 3.59:1 (WCAG 1.4.11).
+  --input-border-color: ~"light-dark(#868c97,#9a9898)";
   --default-label-link-bg: var(--color-bg);
   --default-label-link-text: ~"light-dark(#296282, #5fa4cc)";
   --default-label-link-border: ~"1px solid light-dark(#b8c7ce, #494747)";
@@ -2138,6 +2141,16 @@ textarea:disabled,
 .select2-container--default.select2-container--disabled .select2-search__field::placeholder {
   color: var(--text-help) !important;
   opacity: 1 !important;
+}
+
+// Placeholders were Bootstrap's #999 (2.85:1 on white).
+.form-control::placeholder,
+input::placeholder,
+textarea::placeholder,
+.select2-container--default .select2-selection--single .select2-selection__placeholder,
+.select2-container--default .select2-selection--multiple .select2-search__field::placeholder {
+  color: var(--text-help);
+  opacity: 1;
 }
 
 input[type="search"].search-highlight {
